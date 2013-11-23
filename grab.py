@@ -24,6 +24,15 @@ def main():
 
     ensure_dir('data')
 
+    all_games = os.listdir('data')
+
+    for game in all_games:
+        game = int(game)
+        if game > highest_match_received:
+            highest_match_received = game
+
+    print('starting from {}'.format(highest_match_received))
+
     while True:
         if len(request_queue) > 0:
             top = request_queue[0]
