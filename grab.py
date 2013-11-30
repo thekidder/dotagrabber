@@ -5,6 +5,7 @@ import datetime
 import os
 import requests
 import time
+import settings
 
 BASE_URL = 'https://api.steampowered.com/IDOTA2Match_570'
 VERSION = 'V001'
@@ -13,7 +14,7 @@ MATCH_HISTORY = 'GetMatchHistory'
 MATCH_HISTORY_SEQ = 'GetMatchHistoryBySequenceNum'
 MATCH_DETAILS = 'GetMatchDetails'
 
-API_KEY = '63550223A5E9025487635A696C3CA77B'
+API_KEY = settings.API_KEY
 
 
 request_queue = list()

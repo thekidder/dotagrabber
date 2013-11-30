@@ -14,8 +14,12 @@ def main():
 
     for filename in all_games:
         with open('data/' + filename) as f:
-            game = cPickle.load(f)
-            analyze(game)
+            try:
+                game = cPickle.load(f)
+                analyze(game)
+            except EOFError:
+                print('EOF on {}, removing', filename)
+                os.unlink('data/' + filename)
         if total % 1000 == 0:
             print('processed {}'.format(total))
     print('found {} valid games out of {}'.format(num, total))
